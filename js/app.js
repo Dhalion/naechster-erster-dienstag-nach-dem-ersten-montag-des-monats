@@ -209,6 +209,11 @@ function toggleYearView() {
     toggleButton.textContent = 'Jahresübersicht ausblenden';
     toggleButton.classList.remove('bg-gray-200', 'hover:bg-gray-300');
     toggleButton.classList.add('bg-primary', 'text-white', 'hover:bg-indigo-600');
+    
+    // Warte einen Moment, bis die Tabelle sichtbar ist, bevor wir scrollen
+    setTimeout(() => {
+      yearOverviewSection.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   } else {
     yearOverviewSection.classList.add('hidden');
     toggleButton.textContent = 'Alle Termine anzeigen';
