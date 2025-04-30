@@ -1,7 +1,10 @@
-
 @font-face {
   font-family: 'Lubalin Graph';
   src: url('../fonts/LubalinGraph.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: light dark;
 }
 
 h1 {
@@ -100,6 +103,10 @@ tbody tr:nth-child(odd) {
   background-color: rgba(249, 250, 251, 0.5);
 }
 
+.dark tbody tr:nth-child(odd) {
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -109,6 +116,10 @@ tbody tr:nth-child(odd) {
 .overflow-x-auto {
   scrollbar-width: thin;
   scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.dark .overflow-x-auto {
+  scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
 }
 
 .overflow-x-auto::-webkit-scrollbar {
@@ -124,6 +135,10 @@ tbody tr:nth-child(odd) {
   border-radius: 9999px;
 }
 
+.dark .overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5);
+}
+
 .upcoming-date-card {
   transform: translateY(0);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -135,6 +150,11 @@ tbody tr:nth-child(odd) {
 
 .holiday-shifted-indicator {
   background: linear-gradient(45deg, #fef3c7 25%, #fde68a 75%);
+}
+
+.dark .holiday-shifted-indicator {
+  background: linear-gradient(45deg, rgba(254, 243, 199, 0.2) 25%, rgba(253, 230, 138, 0.2) 75%);
+  color: #fde68a;
 }
 
 figure img {
@@ -156,5 +176,17 @@ figure:hover figcaption {
 @media (max-width: 640px) {
   figure img {
     max-height: 70vh;
+  }
+}
+
+/* Dark mode detection based on system preferences */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    color-scheme: dark;
+  }
+  
+  html:not(.light) body {
+    background-color: #111827;
+    color: #f9fafb;
   }
 }

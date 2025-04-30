@@ -8,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -53,36 +54,37 @@
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18181b">
 </head>
 
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
 <div class="container mx-auto px-4 sm:px-6 py-8 max-w-6xl">
 
   <main>
     <section class="mb-10 sm:mb-16">
-      <div class="bg-white rounded-xl shadow-card overflow-hidden transform transition-all hover:shadow-card-hover">
-        <div class="bg-gradient-to-r from-primary to-indigo-700 p-5 sm:p-6 text-white text-center">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-card overflow-hidden transform transition-all hover:shadow-card-hover">
+        <div class="bg-gradient-to-r from-primary to-indigo-700 dark:from-indigo-900 dark:to-blue-900 p-5 sm:p-6 text-white text-center">
           <h1 class="text-3xl sm:text-4xl font-headline my-3 tracking-tight">
             Nächster erster Dienstag nach dem ersten Montag
           </h1>
         </div>
         <div class="p-6 sm:p-8 text-center">
-          <div id="next-tuesday-date" class="text-5xl font-bold my-8 text-red">Wird berechnet...</div>
-          <div id="next-tuesday-info" class="text-gray-600"></div>
+          <div id="next-tuesday-date" class="text-5xl font-bold my-8 text-slate dark:text-slate-100">Wird berechnet...</div>
+          <div id="next-tuesday-info" class="text-gray-600 dark:text-gray-300"></div>
         </div>
-        <div class="bg-gray-50 p-4 border-t border-gray-100 flex justify-between items-center text-sm">
-          <p class="text-gray-600">Aktuelles Datum: <span id="current-date" class="font-medium"></span></p>
+        <div class="bg-gray-50 dark:bg-gray-700 p-4 border-t border-gray-100 dark:border-gray-600 flex justify-between items-center text-sm">
+          <p class="text-gray-600 dark:text-gray-300">Aktuelles Datum: <span id="current-date" class="font-medium"></span></p>
         </div>
       </div>
     </section>
 
     <section>
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
-        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-0">
-          Kommende erste Dienstage <span id="current-year"></span>
+        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 sm:mb-0">
+          Kommende erste Dienstage <span id="current-year" class="text-primary dark:text-blue-400"></span>
         </h2>
         <button id="toggle-year-view"
-                class="self-start sm:self-auto px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                class="self-start sm:self-auto px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-900">
           Alle Termine anzeigen
         </button>
       </div>
@@ -93,21 +95,21 @@
 
     <section class="mt-10 sm:mt-12">
       <div id="year-overview" class="hidden">
-        <div class="bg-white rounded-xl shadow-card overflow-hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-card overflow-hidden">
           <div class="overflow-x-auto">
-            <table id="year-dates" class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-gray-100">
+            <table id="year-dates" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead class="bg-gray-100 dark:bg-gray-700">
               <tr>
                 <th scope="col"
-                    class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monat
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Monat
                 </th>
                 <th scope="col"
-                    class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                   Termin
                 </th>
               </tr>
               </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
+              <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
               </tbody>
             </table>
           </div>
@@ -115,17 +117,13 @@
       </div>
     </section>
 
-    <section class="mt-10 sm:mt-12 mb-10 sm:mb-16">
-      <div class="p-5 sm:p-6 text-center">
-        <figure class="relative">
-          <img src="img/meme.webp" alt="Terminfindungs-Meme"
-               class="mx-auto rounded-lg max-w-full h-auto max-h-96 object-contain">
-        </figure>
-      </div>
+    <section class="mt-10 sm:mt-12 mb-10 sm:mb-16 text-center">
+      <img src="img/meme.webp" alt="Terminfindungs-Meme"
+           class="mx-auto rounded-lg max-w-full h-auto max-h-96 object-contain dark:ring-1 dark:ring-gray-600 dark:bg-gray-800/20">
     </section>
   </main>
 
-  <footer class="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+  <footer class="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-500 dark:text-gray-400 text-sm">
     <p>© 2025 Christopher Falkner</p>
   </footer>
 </div>
