@@ -1,0 +1,160 @@
+
+@font-face {
+  font-family: 'Lubalin Graph';
+  src: url('../fonts/LubalinGraph.woff2') format('woff2');
+}
+
+h1 {
+  font-family: 'Lubalin Graph', sans-serif;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  table {
+    font-size: 0.875rem;
+  }
+
+  table td, table th {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+#year-dates {
+    width: 100%;
+    table-layout: fixed;
+}
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #year-overview {
+    display: block !important;
+  }
+
+  table {
+    width: 100%;
+    page-break-inside: avoid;
+    font-size: 11pt;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  header, footer {
+    margin: 20px 0;
+  }
+
+  button,
+  #toggle-year-view {
+    display: none;
+  }
+
+  .shadow-card,
+  .shadow-lg,
+  .shadow-md,
+  .shadow {
+    box-shadow: none !important;
+  }
+
+  .from-primary,
+  .to-indigo-500 {
+    background-color: #f3f4f6 !important;
+    color: #111827 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(249, 250, 251, 0.5);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.overflow-x-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 9999px;
+}
+
+.upcoming-date-card {
+  transform: translateY(0);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.upcoming-date-card:hover {
+  transform: translateY(-2px);
+}
+
+.holiday-shifted-indicator {
+  background: linear-gradient(45deg, #fef3c7 25%, #fde68a 75%);
+}
+
+figure img {
+  transition: transform 0.3s ease;
+}
+
+figure:hover img {
+  transform: scale(1.02);
+}
+
+figure figcaption {
+  transition: opacity 0.3s ease;
+}
+
+figure:hover figcaption {
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  figure img {
+    max-height: 70vh;
+  }
+}
