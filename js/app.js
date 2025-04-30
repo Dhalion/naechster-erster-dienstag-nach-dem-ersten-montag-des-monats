@@ -226,7 +226,6 @@ function init() {
   updateMainDateDisplay();
   showUpcomingDates();
   showYearOverview();
-  handleResponsiveLayout();
 
   const toggleButton = document.getElementById('toggle-year-view');
   if (toggleButton) {
