@@ -237,8 +237,6 @@ function init() {
     toggleButton.addEventListener('click', toggleYearView);
   }
 
-  window.addEventListener('resize', handleResponsiveLayout);
-
   scheduleNextUpdate();
 }
 
